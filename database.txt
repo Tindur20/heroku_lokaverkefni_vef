@@ -1,0 +1,19 @@
+create database 2811992349_lokaverkefni_vefth
+
+create table users(
+	author varchar(32) not null,
+    pass varchar(32) not null,
+    nafn varchar(32) not null,
+    primary key (Author)
+ );
+
+insert into users(author, pass, nafn) values ('ssa', 123456,'Sigsteinn');
+
+create table news(
+	ID int(11) auto_increment,
+    story text not null,
+    Author varchar(32) not null,
+    primary key (ID),
+    constraint FK_Author foreign key (author)
+    references users (author)
+)
